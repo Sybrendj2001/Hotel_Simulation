@@ -54,6 +54,7 @@
     </Compile>
     <Compile Include="Area.cs" />
     <Compile Include="RoomObjects\Cinema.cs" />
+    <Compile Include="RoomObjects\Elevator\LiftShaft.cs" />
     <Compile Include="RoomObjects\Lobby.cs" />
     <Compile Include="RoomObjects\Restaurant.cs" />
     <Compile Include="RoomObjects\Room\Room1Star.cs" />

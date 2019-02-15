@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Hotel.Room
+namespace Hotel.RoomObjects.Room
 {
     class Room4Star : Area
     {

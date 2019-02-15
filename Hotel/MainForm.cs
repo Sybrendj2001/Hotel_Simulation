@@ -1,5 +1,5 @@
 ﻿using Hotel.Persons;
-using Hotel.Room;
+using Hotel.RoomObjects.Room;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -78,6 +78,11 @@ namespace Hotel
             }
 
           pbBackground.Image = _offscreenBitmap;
+        }
+
+        private void pbBackground_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

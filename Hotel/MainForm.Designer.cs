@@ -39,6 +39,7 @@
             this.pbBackground.Size = new System.Drawing.Size(801, 454);
             this.pbBackground.TabIndex = 0;
             this.pbBackground.TabStop = false;
+            this.pbBackground.Click += new System.EventHandler(this.pbBackground_Click);
             // 
             // MainForm
             // 

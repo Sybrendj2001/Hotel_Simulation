@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace Hotel.Room
+namespace Hotel.RoomObjects.Room
 {
     class Room1Star : Area
     {

@@ -9,18 +9,20 @@ namespace Hotel.Settings
 {
     public abstract class Timer
     {
-       /*Timer timer = new Timer();
-        timer.Interval = 500;
-            timer.Tick += Timer_Tick;
-            timer.Start();
-    }
+        /*Timer timer = new Timer();
+         timer.Interval = 500;
+             timer.Tick += Timer_Tick;
+             timer.Start();
 
-    private void Timer_Tick(object sender, EventArgs e)
-    {
-        _offscreenBitmap = new Bitmap(500, 500);
+         private void Timer_Tick(object sender, EventArgs e)
+     {
+         _offscreenBitmap = new Bitmap(500, 500);
 
-        UpdateAll();
-        Draw(Graphics.FromImage(_offscreenBitmap));
-        Refresh();*/
+         UpdateAll();
+         Draw(Graphics.FromImage(_offscreenBitmap));
+         Refresh();*/
     }
+}
+
+   
 }
