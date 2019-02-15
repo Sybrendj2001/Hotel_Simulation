@@ -46,24 +46,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Area.cs" />
-    <Compile Include="KamerObjecten\Cinema.cs" />
-    <Compile Include="KamerObjecten\Lobby.cs" />
-    <Compile Include="KamerObjecten\Restaurant.cs" />
-    <Compile Include="KamerObjecten\Room\Room1Star.cs" />
-    <Compile Include="KamerObjecten\Room\Room2Star.cs" />
-    <Compile Include="KamerObjecten\Room\Room3Star.cs" />
-    <Compile Include="KamerObjecten\Room\Room4Star.cs" />
-    <Compile Include="KamerObjecten\Room\Room5Star.cs" />
-    <Compile Include="Personen\Guest.cs" />
+    <Compile Include="RoomObjects\Cinema.cs" />
+    <Compile Include="RoomObjects\Lobby.cs" />
+    <Compile Include="RoomObjects\Restaurant.cs" />
+    <Compile Include="RoomObjects\Room\Room1Star.cs" />
+    <Compile Include="RoomObjects\Room\Room2Star.cs" />
+    <Compile Include="RoomObjects\Room\Room3Star.cs" />
+    <Compile Include="RoomObjects\Room\Room4Star.cs" />
+    <Compile Include="RoomObjects\Room\Room5Star.cs" />
+    <Compile Include="Persons\Guest.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings\Timer.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
