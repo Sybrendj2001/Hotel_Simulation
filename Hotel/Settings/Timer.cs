@@ -21,7 +21,7 @@ namespace Hotel.Settings
          UpdateAll();
          Draw(Graphics.FromImage(_offscreenBitmap));
          Refresh();*/
-    }
+    
 }
 
    

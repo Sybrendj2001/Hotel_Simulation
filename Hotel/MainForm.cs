@@ -20,6 +20,8 @@ namespace Hotel
         private Bitmap _offscreenBitmap;
         private Graphics _graphics;
 
+
+
         /// <summary>
         /// Constructor
         /// </summary>
@@ -84,5 +86,7 @@ namespace Hotel
         {
 
         }
+
+
     }
 }
