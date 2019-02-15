@@ -20,8 +20,7 @@ namespace Hotel
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());
 
-            string json = File.ReadAllText(@"d:\hotel.layout"); // Leest de file
-            List<Rooms> kamers = JsonConvert.DeserializeObject<List<Rooms>>(json); // zet de JSON om in een lijst in Rooms.cs
+           
         }
     }
 }
