@@ -39,13 +39,15 @@ namespace Hotel
 
             _graphics = Graphics.FromImage(_offscreenBitmap);
 
+            JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
+            //_roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
+
             Guest vincent = new Guest();
             _persons.Add(vincent);
 
             Draw(_graphics);
 
-            JSON.InlezenJSON _kamers = new JSON.InlezenJSON();
-            _kamers.Posities();
+            
 
             Timer timer = new Timer();
             timer.Interval = 500;
