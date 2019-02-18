@@ -13,6 +13,7 @@ namespace Hotel.JSON
 
     public class Rooms
     {
+        //test
         public string AreaType { get; set; }
         public string Position { get; set; }
         public string Dimention { get; set; }
