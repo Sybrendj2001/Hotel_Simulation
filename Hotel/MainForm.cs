@@ -44,6 +44,9 @@ namespace Hotel
 
             Draw(_graphics);
 
+            JSON.InlezenJSON _kamers = new JSON.InlezenJSON();
+            _kamers.Posities();
+
             Timer timer = new Timer();
             timer.Interval = 500;
             timer.Tick += Timer_Tick;

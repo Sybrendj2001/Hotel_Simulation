@@ -20,5 +20,7 @@ namespace Hotel.JSON
         public string Classification { get; set; }
         public int PositionX { get; set; }
         public int PositionY { get; set; }
+        public int DimensionX { get; set; }
+        public int DimensionY { get; set; }
     }
 }
