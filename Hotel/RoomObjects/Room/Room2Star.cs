@@ -18,7 +18,7 @@ namespace Hotel.RoomObjects.Room
         public Room2Star(int x, int y, int width, int height, Brush color)
         {
             Position = new Point(x, y);
-            Size = new Size(width +600, height);
+            Size = new Size(width , height);
             Color = color;
         }
 

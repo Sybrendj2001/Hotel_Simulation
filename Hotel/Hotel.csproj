@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="gridGenerator.cs" />
     <Compile Include="JSON\InlezenJSON.cs" />
     <Compile Include="JSON\Rooms.cs" />
     <Compile Include="MainForm.cs">

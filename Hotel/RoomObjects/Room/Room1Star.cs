@@ -20,6 +20,7 @@ namespace Hotel.RoomObjects.Room
             Position = new Point(x, y);
             Size = new Size(width, height);
             Color = color;
+            
         }
 
         /// <summary>
