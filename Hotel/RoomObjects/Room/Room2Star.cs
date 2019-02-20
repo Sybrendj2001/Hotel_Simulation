@@ -15,12 +15,16 @@ namespace Hotel.RoomObjects.Room
         /// <summary>
         /// Constructor
         /// </summary>
-        public Room2Star(int x, int y, int width, int height, Brush color)
+        Image imgRoom2Star = Image.FromFile("../../Resources/Room2.png");
+        public Image Images;
+        public Room2Star(int x, int y, int width, int height)
         {
             Position = new Point(x, y);
             Size = new Size(width , height);
-            Color = color;
+            //Color = color;
+            Images = imgRoom2Star;
         }
+
 
         /// <summary>
         /// ...
@@ -28,7 +32,9 @@ namespace Hotel.RoomObjects.Room
         /// <param name="graphics">...</param>
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Images, Position.X, Position.Y, Size.Width, Size.Height);
+            //graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
         }
     }
+
 }

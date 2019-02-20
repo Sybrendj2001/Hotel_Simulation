@@ -17,7 +17,7 @@ namespace Hotel.JSON
         //static string text = client.DownloadString("http://sab.re/hotel.layout"); // Reads file from website
         //<Rooms> rooms = JsonConvert.DeserializeObject<List<Rooms>>(text); // puts the JSON data into object in Rooms.cs
 
-        List<Rooms> rooms;
+        public List<Rooms> rooms;
         public void JSONReading()
         {
             WebClient client = new WebClient();

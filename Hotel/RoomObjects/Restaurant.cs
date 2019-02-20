@@ -14,11 +14,14 @@ namespace Hotel.KamerObjecten
         /// <summary>
         /// Constructor
         /// </summary>
-        public Restaurant(int x, int y, int width, int height, Brush color)
+        Image imgRestaurant = Image.FromFile("../../Resources/Restaurant.png");
+        public Image Images;
+        public Restaurant(int x, int y, int width, int height)
         {
             Position = new Point(x, y);
             Size = new Size(width, height);
-            Color = color;
+            
+            Images = imgRestaurant;
         }
 
         /// <summary>
@@ -27,7 +30,7 @@ namespace Hotel.KamerObjecten
         /// <param name="graphics">...</param>
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Images, Position.X, Position.Y, Size.Width, Size.Height);
         }
     }
 }

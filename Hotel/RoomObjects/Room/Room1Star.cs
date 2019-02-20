@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.Properties;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -15,12 +16,15 @@ namespace Hotel.RoomObjects.Room
         /// <summary>
         /// Constructor
         /// </summary>
-        public Room1Star(int x, int y, int width, int height, Brush color)
+        /// 
+        Image imgRoom1Star = Image.FromFile("../../Resources/Room1.png");
+        public Image Images;
+        public Room1Star(int x, int y, int width, int height)
         {
             Position = new Point(x, y);
             Size = new Size(width, height);
-            Color = color;
-            
+            //Color = Brushes.Gold;
+            Images = imgRoom1Star;
         }
 
         /// <summary>
@@ -29,7 +33,8 @@ namespace Hotel.RoomObjects.Room
         /// <param name="graphics">...</param>
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Images, Position.X, Position.Y, Size.Width, Size.Height);
+            //graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
         }
 
     }

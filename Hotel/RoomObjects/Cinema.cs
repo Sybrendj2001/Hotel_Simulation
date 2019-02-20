@@ -15,11 +15,14 @@ namespace Hotel.RoomObjects
         /// <summary>
         /// Constructor
         /// </summary>
-        public Cinema(int x, int y, int width, int height, Brush color)
+        Image imgCinema = Image.FromFile("../../Resources/Cinema.png");
+        public Image Images;
+        public Cinema(int x, int y, int width, int height)
         {
-            Position = new Point(x, y);
+            Position = new Point(x, y - 100);
             Size = new Size(width, height);
-            Color = color;
+            //Color = color;
+            Images = imgCinema;
         }
 
         /// <summary>
@@ -28,7 +31,7 @@ namespace Hotel.RoomObjects
         /// <param name="graphics">...</param>
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Images, Position.X, Position.Y, Size.Width, Size.Height);
         }
     }
 }

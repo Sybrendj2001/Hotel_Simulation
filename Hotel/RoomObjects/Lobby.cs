@@ -14,11 +14,14 @@ namespace Hotel.KamerObjecten
         /// <summary>
         /// Constructor
         /// </summary>
+        Image imgLobby = Image.FromFile("../../Resources/Lobby.png");
+        public Image Images;
         public Lobby(int x, int y, int width, int height, Brush color)
         {
             Position = new Point(x, y);
             Size = new Size(width, height);
             Color = color;
+            Images = imgLobby;
         }
 
         /// <summary>
@@ -27,7 +30,8 @@ namespace Hotel.KamerObjecten
         /// <param name="graphics">...</param>
         public override void Draw(Graphics graphics)
         {
-            graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
+            graphics.DrawImage(Images, Position.X, Position.Y, Size.Width, Size.Height);
+            // graphics.FillRectangle(Color, Position.X, Position.Y, Size.Width, Size.Height);
         }
     }
 }
