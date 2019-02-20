@@ -19,7 +19,6 @@ namespace Hotel
 
         private Bitmap _offscreenBitmap;
         private Graphics _graphics;
-        
 
 
 
@@ -32,27 +31,23 @@ namespace Hotel
 
             _rooms = new List<Area>();
             _persons = new List<Guest>();
-            _offscreenBitmap = new Bitmap(1000, 1000);
+            _offscreenBitmap = new Bitmap(500, 500);
 
-            
-            Area roomStar001 = new Room1Star(50, 800, 100, 100, Brushes.Red);
+            Area roomStar001 = new Room1Star(100, 100, 200, 100, Brushes.Red);
             _rooms.Add(roomStar001);
-            _rooms.Add(new Room2Star(50, 700, 100, 100, Brushes.Yellow));
-            _rooms.Add(new Room2Star(50, 600, 100, 100, Brushes.Blue));
-            _rooms.Add(new Room2Star(50, 500, 100, 100, Brushes.BlueViolet));
-            _rooms.Add(new Room2Star(150, 800, 100, 100, Brushes.Brown));
-            _rooms.Add(new Room2Star(150, 700, 100, 100, Brushes.BurlyWood));
-            _rooms.Add(new Room2Star(150, 600, 100, 100, Brushes.CadetBlue));
-            _rooms.Add(new Room2Star(150, 500, 100, 100, Brushes.Chartreuse));
+            _rooms.Add(new Room2Star(300, 100, 200, 100, Brushes.Yellow));
+
             _graphics = Graphics.FromImage(_offscreenBitmap);
 
-           // Guest vincent = new Guest();
-            //_persons.Add(vincent);
+            JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
+            //_roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
+
+            Guest vincent = new Guest();
+            _persons.Add(vincent);
 
             Draw(_graphics);
 
-            JSON.InlezenJSON _kamers = new JSON.InlezenJSON();
-            _kamers.Posities();
+            
 
             Timer timer = new Timer();
             timer.Interval = 500;
@@ -62,7 +57,7 @@ namespace Hotel
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            _offscreenBitmap = new Bitmap(1000, 1000);
+            _offscreenBitmap = new Bitmap(500, 500);
 
             UpdateAll();
             Draw(Graphics.FromImage(_offscreenBitmap));
