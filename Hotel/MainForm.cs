@@ -160,10 +160,7 @@ namespace Hotel
                         
                     }
 
-                    {
-                        _rooms.Add(new Room5Star((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                        //totalRooms++;
-                    }
+                    
 
 
 
