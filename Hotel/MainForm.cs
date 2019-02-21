@@ -22,8 +22,8 @@ namespace Hotel
         private Bitmap _offscreenBitmap;
         private Graphics _graphics;
 
-        public int yAs = 6;
-        public int xAs = 8;
+        public static int yAxis ;
+        public static int xAxis ;
 
 
         /// <summary>
@@ -37,10 +37,8 @@ namespace Hotel
             _persons = new List<Guest>();
             _offscreenBitmap = new Bitmap(1000, 1000);
 
-            //  Area roomStar001 = new Room1Star(100, 100, 200, 100, Brushes.Red);
-            //_rooms.Add(roomStar001);
-            //_rooms.Add(new Room2Star(300, 100, 200, 100, Brushes.Yellow));
-            SetAs();
+            getXandY();
+            GenerateRooms();
             _graphics = Graphics.FromImage(_offscreenBitmap);
 
             JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
@@ -52,7 +50,7 @@ namespace Hotel
 
             Draw(_graphics);
 
-            
+
 
             Timer timer = new Timer();
             timer.Interval = 500;
@@ -89,7 +87,7 @@ namespace Hotel
                 person.Draw(g);
             }
 
-          pbBackground.Image = _offscreenBitmap;
+            pbBackground.Image = _offscreenBitmap;
         }
 
         private void pbBackground_Click(object sender, EventArgs e)
@@ -97,100 +95,100 @@ namespace Hotel
 
         }
 
-        public void SetAs()
+        public void GenerateRooms()
         {
             JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
             _roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
-                                  // Console.WriteLine(_roomdata.rooms[1].AreaType);
-                                   int totalRooms = 0;
 
+            int totalRooms = 0;
+
+            for (int y = 0; y < 1; y++)
+            {
+                for (int x = 0; x < xAxis; x++)
+                {
+                    if(y == 0 && x == 0)
+                    {
+                        _rooms.Add(new Balie(x, y));
+                    }
+                    else
+                    {
+                        _rooms.Add(new Lobby(x, y));
+                    }
+                }
+            }
             
-                _rooms.Add(new Balie(100, 600, 100, 100));
-            _rooms.Add(new Lobby(200, 600, 100, 100));
-            _rooms.Add(new Lobby(300, 600, 100, 100));
-            _rooms.Add(new Lobby(400, 600, 100, 100));
-            _rooms.Add(new Lobby(500, 600, 100, 100));
-            _rooms.Add(new Lobby(600, 600, 100, 100));
-            _rooms.Add(new Lobby(700, 600, 100, 100));
-            _rooms.Add(new Lobby(800, 600, 100, 100));
-
 
 
             try
             {
-
-
-                for (int y = 0; y < yAs; y++)
+                for (int y = 0; y < yAxis; y++)
                 {
 
-                    for (int x = 0; x < xAs; x++)
+                    for (int x = 0; x < xAxis; x++)
                     {
-
-
-                        Console.WriteLine(_roomdata.rooms[totalRooms].AreaType);
-                        Console.WriteLine(_roomdata.rooms[totalRooms].Classification);
-
-                        if (_roomdata.rooms[totalRooms].AreaType == "Cinema" && _roomdata.rooms[totalRooms].DimensionY == 2)
+                        if (_roomdata.rooms[totalRooms].AreaType == "Cinema")
                         {
-                            _rooms.Add(new Cinema((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Cinema(totalRooms));
                         }
                         else if (_roomdata.rooms[totalRooms].AreaType == "Restaurant")
                         {
-                            _rooms.Add(new Restaurant((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Restaurant(totalRooms));
                         }
-                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "1 Star" && _roomdata.rooms[totalRooms].DimensionY == 1)
+                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "1 Star")
                         {
-                            _rooms.Add(new Room1Star((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Room1Star(totalRooms));
                         }
-                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "2 stars" && _roomdata.rooms[totalRooms].DimensionY == 1)
+                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "2 stars")
                         {
-                            _rooms.Add(new Room2Star((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Room2Star(totalRooms));
                         }
-                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "3 stars" && _roomdata.rooms[totalRooms].DimensionY == 1)
+                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "3 stars")
                         {
-                            _rooms.Add(new Room3Star((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Room3Star(totalRooms));
                         }
                         else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "4 stars" && _roomdata.rooms[totalRooms].DimensionY == 1)
                         {
-                            _rooms.Add(new Room4Star1D((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Room4Star1D(totalRooms));
                         }
                         else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "4 stars" && _roomdata.rooms[totalRooms].DimensionY == 2)
                         {
-                            _rooms.Add(new Room4Star2D((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Room4Star2D(totalRooms));
                         }
-                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "5 stars" && _roomdata.rooms[totalRooms].DimensionY == 2)
+                        else if (_roomdata.rooms[totalRooms].AreaType == "Room" && _roomdata.rooms[totalRooms].Classification == "5 stars")
                         {
-                            _rooms.Add(new Room5Star((_roomdata.rooms[totalRooms].PositionX * 100), (yAs * 100 - (_roomdata.rooms[totalRooms].PositionY * 100)), (_roomdata.rooms[totalRooms].DimensionX * 100), (_roomdata.rooms[totalRooms].DimensionY * 100)));
-                            //totalRooms++;
+                            _rooms.Add(new Room5Star(totalRooms));
                         }
-                        
-                        
-
-
-                         totalRooms++;
-
-
-
-                        // Area roomStar001 = new Room1Star(0, 600, 100, 100, Brushes.Gray);
-                        //_rooms.Add(roomStar001);
-
-                        _graphics = Graphics.FromImage(_offscreenBitmap);
-
-
+                        totalRooms++; // +1 everytime the forloop is running, this will make sure that every room will get into the bitmap
+                        _graphics = Graphics.FromImage(_offscreenBitmap); //adds the room to the bitmap which is shown on the screen
                     }
 
                 }
 
-            } catch
-            { }
-        }
+            }
+            catch
+            {
+            }
 
+
+        }
+        public void getXandY()
+        {
+
+            JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
+            _roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
+            for (int i = 0; i < _roomdata.rooms.Count; i++)
+            {
+                if (_roomdata.rooms[i].PositionY > yAxis)
+                {
+                    yAxis = _roomdata.rooms[i].PositionY; // will scroll through the array of PositionY to search the highest Y-axis, and will store it in yAxis
+                }
+                if (_roomdata.rooms[i].PositionX > xAxis)
+                {
+                    xAxis = _roomdata.rooms[i].PositionX; // will scroll through the array of PositionX to search the highest X-axis, and will store it in xAxis
+                }
+            }
+            
+        }
     }
 }
+

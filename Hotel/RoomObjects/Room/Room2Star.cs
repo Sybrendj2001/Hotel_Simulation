@@ -17,10 +17,13 @@ namespace Hotel.RoomObjects.Room
         /// </summary>
         Image imgRoom2Star = Image.FromFile("../../Resources/Room2.png");
         public Image Images;
-        public Room2Star(int x, int y, int width, int height)
+        public Room2Star(int dataArrayJSON)
         {
-            Position = new Point(x, y);
-            Size = new Size(width , height);
+            JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
+            _roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
+
+            Position = new Point(_roomdata.rooms[dataArrayJSON].PositionX * 100, MainForm.yAxis * 100 - (_roomdata.rooms[dataArrayJSON].PositionY * 100));
+            Size = new Size(_roomdata.rooms[dataArrayJSON].DimensionX * 100, _roomdata.rooms[dataArrayJSON].DimensionY * 100);
             //Color = color;
             Images = imgRoom2Star;
         }

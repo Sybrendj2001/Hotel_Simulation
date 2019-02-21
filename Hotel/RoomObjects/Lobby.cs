@@ -16,10 +16,10 @@ namespace Hotel.KamerObjecten
         /// </summary>
         Image imgLobby = Image.FromFile("../../Resources/Lobby.png");
         public Image Images;
-        public Lobby(int x, int y, int width, int height)
+        public Lobby(int x, int y)
         {
-            Position = new Point(x, y);
-            Size = new Size(width, height);
+            Position = new Point(x * 100 + 100, (MainForm.yAxis * 100) - y * 100);
+            Size = new Size(100, 100);
             //Color = color;
             Images = imgLobby;
         }
@@ -43,10 +43,10 @@ namespace Hotel.KamerObjecten
         /// </summary>
         Image imgBalie = Image.FromFile("../../Resources/Balie.png");
         public Image Images;
-        public Balie(int x, int y, int width, int height)
+        public Balie(int x, int y)
         {
-            Position = new Point(x, y);
-            Size = new Size(width, height);
+            Position = new Point(x * 100 +100, (MainForm.yAxis * 100) - y*100);
+            Size = new Size(100, 100);
             //Color = color;
             Images = imgBalie;
         }

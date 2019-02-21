@@ -16,10 +16,13 @@ namespace Hotel.RoomObjects.Room
         /// </summary>
         Image imgRoom4Star1D = Image.FromFile("../../Resources/Room4.png");
         public Image Images;
-        public Room4Star1D(int x, int y, int width, int height)
+        public Room4Star1D(int dataArrayJSON)
         {
-            Position = new Point(x, y);
-            Size = new Size(width, height);
+            JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
+            _roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
+
+            Position = new Point(_roomdata.rooms[dataArrayJSON].PositionX * 100, MainForm.yAxis * 100 - (_roomdata.rooms[dataArrayJSON].PositionY * 100));
+            Size = new Size(_roomdata.rooms[dataArrayJSON].DimensionX * 100, _roomdata.rooms[dataArrayJSON].DimensionY * 100);
             //Color = color;
             Images = imgRoom4Star1D;
         }
@@ -43,10 +46,13 @@ namespace Hotel.RoomObjects.Room
         /// </summary>
         Image imgRoom4Star2D = Image.FromFile("../../Resources/Room42D.png");
         public Image Images;
-        public Room4Star2D(int x, int y, int width, int height)
+        public Room4Star2D(int dataArrayJSON)
         {
-            Position = new Point(x, y-100);
-            Size = new Size(width, height);
+            JSON.JSONtoCode _roomdata = new JSON.JSONtoCode();
+            _roomdata.Roomlist(); // initiates everything in JSONtoCode.cs
+
+            Position = new Point(_roomdata.rooms[dataArrayJSON].PositionX * 100, MainForm.yAxis * 100 - (_roomdata.rooms[dataArrayJSON].PositionY * 100) - 100);
+            Size = new Size(_roomdata.rooms[dataArrayJSON].DimensionX * 100, _roomdata.rooms[dataArrayJSON].DimensionY * 100);
             //Color = color;
             Images = imgRoom4Star2D;
         }

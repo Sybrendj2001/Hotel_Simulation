@@ -11,12 +11,6 @@ namespace Hotel.JSON
 {
     class JSONtoCode
     {
-
-        //static WebClient client = new WebClient();
-        //static string json = File.ReadAllText(@"d:\hotel.layout"); // Reads file from local drive
-        //static string text = client.DownloadString("http://sab.re/hotel.layout"); // Reads file from website
-        //<Rooms> rooms = JsonConvert.DeserializeObject<List<Rooms>>(text); // puts the JSON data into object in Rooms.cs
-
         public List<Rooms> rooms;
         public void JSONReading()
         {
