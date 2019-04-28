@@ -7,12 +7,8 @@ using System.Threading.Tasks;
 
 namespace Hotel.Persons
 {
-    class Guest
+    class Guest : Person
     {
-
-
-        public Point Position { get; set; }
-        public Point WalkPerTick { get; set; }
 
         public Guest()
         {
@@ -25,9 +21,9 @@ namespace Hotel.Persons
             Position = new Point(Position.X + WalkPerTick.X, Position.Y + WalkPerTick.Y);
         }
 
-        public void Draw(Graphics g)
+        public void Draw(Graphics graphics)
         {
-            g.FillRectangle(Brushes.Pink, Position.X, Position.Y, 10, 20);
+            graphics.FillRectangle(Brushes.Pink, Position.X, Position.Y, 10, 20);
         }
     }
 }
